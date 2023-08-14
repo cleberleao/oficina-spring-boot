@@ -1,9 +1,14 @@
 package com.cleberleao.oficina.springboot.dto;
 
+import com.cleberleao.oficina.springboot.entity.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class UserDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserDTO extends User {
 
     private Long id;
 

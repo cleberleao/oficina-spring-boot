@@ -1,11 +1,18 @@
 package com.cleberleao.oficina.springboot.entity;
 
+import com.cleberleao.oficina.springboot.dto.UserDTO;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "tb_user")
 public class User implements Serializable {
@@ -18,4 +25,7 @@ public class User implements Serializable {
 
     @Column(name = "nome")
     private String nome;
+
+    public User(UserDTO dto) {
+    }
 }
