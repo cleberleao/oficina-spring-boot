@@ -26,6 +26,4 @@ public class User implements Serializable {
     @Column(name = "nome")
     private String nome;
 
-    public User(UserDTO dto) {
-    }
 }

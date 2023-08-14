@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -21,13 +22,15 @@ public class UserService {
 
 
     public Object alterar(UserDTO dto) {
-        User user = new User(dto);
-        return (UserDTO) repository.save(user);
+        User user = new User();
+        user.setId(dto.getId());
+        user.setNome(dto.getNome());
+        return repository.save(user);
     }
 
     public Object apagar(Long id) {
-        User user = (User) repository.findAllById(Collections.singleton(id));
-        repository.delete(user);
+        List<User> user = repository.findAllById(Collections.singleton(id));
+        repository.deleteAll(user);
         return user;
     }
 
