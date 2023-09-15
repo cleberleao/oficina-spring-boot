@@ -1,4 +1,4 @@
-package com.cleberleao.oficina.springboot.config;
+package com.cleberleao.oficina.springboot.config.db;
 
 
 import com.cleberleao.oficina.springboot.repository.UserRepository;
@@ -13,7 +13,9 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 
 import javax.sql.DataSource;
-
+/**
+ * @author CleberLeão
+ */
 @Configuration
 @EnableJpaRepositories(basePackageClasses = { UserRepository.class }, entityManagerFactoryRef = "userEntityManager")
 public class DataBaseConfig {
