@@ -30,7 +30,14 @@
 			],
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUEkgT2ZpY2luYSBKYXZhIiwic3ViIjoiMTEiLCJpYXQiOjE2OTQ4MDAyMzYsImV4cCI6MTY5NDg4NjYzNn0.-VHN6ivXljhWdHiCo5rUqHdf1LTlEbzktlxcMLBbCJU",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [
@@ -42,7 +49,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nome\": \"Cleber Leão\"\r\n}",
+					"raw": "{\r\n    \"nome\": \"Cleber Leão\",\r\n    \"email\": \"cleber@cleberleao.com\",\r\n    \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -58,6 +65,287 @@
 					"port": "8080",
 					"path": [
 						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step2: Create AccessToken using JWT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion={{jwt_token}}"
+						},
+						"url": {
+							"raw": "https://{{aud}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{aud}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-DocuSign-TraceToken",
+							"value": "e7b936ae-42f2-4962-8bf1-7e239ddc7120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block; report=/client-errors/xss"
+						},
+						{
+							"key": "X-DocuSign-Node",
+							"value": "DA2DFE4"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Oct 2021 14:04:20 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "777"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwAACmbcP4fZSAgAAHIqPkiH2UgCANJQLmkt2dFLolZ4iMZAXI4VAAEAAAAYAAIAAAAFAAAAHQAAAA0AJAAAAGY1YzdhZGQzLTdlMTYtNDcwOC1hYjBlLTgxNDMyOWFiMjJlZCIAJAAAAGY1YzdhZGQzLTdlMTYtNDcwOC1hYjBlLTgxNDMyOWFiMjJlZBIAAQAAAAYAAABqd3RfYnIjACQAAABmNWM3YWRkMy03ZTE2LTQ3MDgtYWIwZS04MTQzMjlhYjIyZWQ.VBMTk-iVADyyFzIbWyxwSz5eyuH-dcB3IEwtwx5ZkBFQY3nC5qJ5DppIJtVtHyaJlhhG4EhX4gBvWM0zvtkIk9IQq0U44elRPiwxm0l8ZNqD-rvP3SwAyhxsK315h4mF317xSrDLs2cxbR8wMtkhBZdaW2vTPpD9vvNl6BVN-GdFZXJkxAsAqe2mM20gJIa5cPWCd8fqONA0UPWGF9UYh2s_8sDBQv8D0RAr_zo1pK8yKqt_mHrTyiSFmPHrmko5fKyp03KUsbQsD2WoMFfofltHPrhes1PNSWn0yvhoogVWRLwvIevQ4RmM3GzRTJuh_FE4MW8g8QBC68GIDxA1ng\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 3600\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/auth/user",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Cleber Leão\",\r\n    \"email\": \"cleber@configs.com.br\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Step2: Create AccessToken using JWT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion={{jwt_token}}"
+						},
+						"url": {
+							"raw": "https://{{aud}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{aud}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Expires",
+							"value": "-1"
+						},
+						{
+							"key": "X-DocuSign-TraceToken",
+							"value": "e7b936ae-42f2-4962-8bf1-7e239ddc7120"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block; report=/client-errors/xss"
+						},
+						{
+							"key": "X-DocuSign-Node",
+							"value": "DA2DFE4"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 04 Oct 2021 14:04:20 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "777"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwAACmbcP4fZSAgAAHIqPkiH2UgCANJQLmkt2dFLolZ4iMZAXI4VAAEAAAAYAAIAAAAFAAAAHQAAAA0AJAAAAGY1YzdhZGQzLTdlMTYtNDcwOC1hYjBlLTgxNDMyOWFiMjJlZCIAJAAAAGY1YzdhZGQzLTdlMTYtNDcwOC1hYjBlLTgxNDMyOWFiMjJlZBIAAQAAAAYAAABqd3RfYnIjACQAAABmNWM3YWRkMy03ZTE2LTQ3MDgtYWIwZS04MTQzMjlhYjIyZWQ.VBMTk-iVADyyFzIbWyxwSz5eyuH-dcB3IEwtwx5ZkBFQY3nC5qJ5DppIJtVtHyaJlhhG4EhX4gBvWM0zvtkIk9IQq0U44elRPiwxm0l8ZNqD-rvP3SwAyhxsK315h4mF317xSrDLs2cxbR8wMtkhBZdaW2vTPpD9vvNl6BVN-GdFZXJkxAsAqe2mM20gJIa5cPWCd8fqONA0UPWGF9UYh2s_8sDBQv8D0RAr_zo1pK8yKqt_mHrTyiSFmPHrmko5fKyp03KUsbQsD2WoMFfofltHPrhes1PNSWn0yvhoogVWRLwvIevQ4RmM3GzRTJuh_FE4MW8g8QBC68GIDxA1ng\",\n    \"token_type\": \"Bearer\",\n    \"expires_in\": 3600\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/auth",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"cleber@configs.com.br\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth"
 					]
 				}
 			},
@@ -182,7 +470,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Cleber Leão\"\r\n}",
+					"raw": "{\r\n    \"id\": 7,\r\n    \"nome\": \"Cleber Leão modificado\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -330,7 +618,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/user/5",
+					"raw": "http://localhost:8080/user/10",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -338,7 +626,7 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"5"
+						"10"
 					]
 				}
 			},
@@ -480,7 +768,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/user/1",
+					"raw": "http://localhost:8080/user/7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -488,7 +776,7 @@
 					"port": "8080",
 					"path": [
 						"user",
-						"1"
+						"7"
 					]
 				}
 			},
