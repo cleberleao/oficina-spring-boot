@@ -1,9 +1,9 @@
 package com.cleberleao.oficina.springboot.controller;
 
 
-import com.cleberleao.oficina.springboot.dto.Login;
-import com.cleberleao.oficina.springboot.dto.Token;
-import com.cleberleao.oficina.springboot.entity.User;
+import com.cleberleao.oficina.springboot.dto.LoginDto;
+import com.cleberleao.oficina.springboot.dto.TokenDto;
+import com.cleberleao.oficina.springboot.model.User;
 import com.cleberleao.oficina.springboot.service.TokenService;
 import com.cleberleao.oficina.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class AuthController {
 	private UserService service;
 
 	@PostMapping
-	public ResponseEntity<?> autenticar(@RequestBody @Valid Login login) {
+	public ResponseEntity<?> autenticar(@RequestBody @Valid LoginDto login) {
 		UsernamePasswordAuthenticationToken dadosLogin = login.converter();
 
 		try {
@@ -40,7 +40,7 @@ public class AuthController {
 			String token = tokenService.gerarToken(authentication);
 			Long id =tokenService.getIdUsuario(token);
 			String roles ="ADMIN";
-			return ResponseEntity.ok(new Token(token, "Bearer", roles));
+			return ResponseEntity.ok(new TokenDto(token, "Bearer", roles));
 		} catch (AuthenticationException var5) {
 			return 	ResponseEntity.status(HttpStatus.BAD_REQUEST).body(var5.toString());
 		}

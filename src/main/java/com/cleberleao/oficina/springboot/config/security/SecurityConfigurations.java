@@ -29,8 +29,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserRepository userRepository;
 
-	public SecurityConfigurations() {
-	}
 	@Override
 	@Bean
 	protected AuthenticationManager authenticationManager() throws Exception {
@@ -55,7 +53,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers( "/auth", "/auth/user");
+		web.ignoring().antMatchers( "/auth", "/auth/user", "/swagger-ui", "/swagger-resources/**", "/v2/api-docs", "/webjars/**");
 	}
 }
 

@@ -1,10 +1,9 @@
 package com.cleberleao.oficina.springboot.config.security;
 
-import com.cleberleao.oficina.springboot.entity.User;
+import com.cleberleao.oficina.springboot.model.User;
 import com.cleberleao.oficina.springboot.repository.UserRepository;
 import com.cleberleao.oficina.springboot.service.TokenService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author CleberLeão

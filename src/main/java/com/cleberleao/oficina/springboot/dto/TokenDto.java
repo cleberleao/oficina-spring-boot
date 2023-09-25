@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Token {
+public class TokenDto {
     private String token;
     private String tipo;
     private String roles;

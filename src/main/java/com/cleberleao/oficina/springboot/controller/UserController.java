@@ -1,6 +1,7 @@
 package com.cleberleao.oficina.springboot.controller;
 
-import com.cleberleao.oficina.springboot.entity.User;
+import com.cleberleao.oficina.springboot.dto.UserDto;
+import com.cleberleao.oficina.springboot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,12 +18,12 @@ public class UserController {
     private UserService service;
 
     @PostMapping
-    public ResponseEntity<?> criar(@RequestBody User dto){
+    public ResponseEntity<?> criar(@RequestBody UserDto dto){
         return ResponseEntity.ok().body(service.criar(dto));
     }
 
     @PutMapping
-    public ResponseEntity<?> alterar(@RequestBody User dto){
+    public ResponseEntity<?> alterar(@RequestBody UserDto dto){
         return ResponseEntity.ok().body(service.alterar(dto));
     }
 

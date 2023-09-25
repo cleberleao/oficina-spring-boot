@@ -1,4 +1,4 @@
-package com.cleberleao.oficina.springboot.entity;
+package com.cleberleao.oficina.springboot.model;
 
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
@@ -7,9 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 /**
  * @author CleberLeão

@@ -1,6 +1,6 @@
 package com.cleberleao.oficina.springboot.service;
 
-import com.cleberleao.oficina.springboot.entity.User;
+import com.cleberleao.oficina.springboot.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

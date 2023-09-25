@@ -10,7 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Login {
+public class LoginDto {
     private String email;
     private String password;
 
