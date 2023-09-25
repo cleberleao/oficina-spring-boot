@@ -46,7 +46,7 @@ public class DataBaseConfig {
 			@Qualifier("dataSource") DataSource dataSource) {
 		return builder
 				.dataSource(dataSource)
-				.packages("com.cleberleao.oficina.springboot.entity")
+				.packages("com.cleberleao.oficina.springboot.model")
 				.build();
 	}
 

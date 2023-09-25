@@ -29,4 +29,12 @@ public class UserDto extends User {
 
     private String password;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || HibernateProxy.class.isAssignableFrom(o.getClass())) return false;
+        UserDto userDto = (UserDto) o;
+        return Objects.equals(id, userDto.id);
+    }
+
 }
