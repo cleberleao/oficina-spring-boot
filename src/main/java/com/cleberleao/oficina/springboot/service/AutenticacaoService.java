@@ -1,6 +1,6 @@
 package com.cleberleao.oficina.springboot.service;
 
-import com.cleberleao.oficina.springboot.model.User;
+import com.cleberleao.oficina.springboot.entity.User;
 import com.cleberleao.oficina.springboot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

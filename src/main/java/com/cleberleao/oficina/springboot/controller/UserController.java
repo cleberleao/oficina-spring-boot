@@ -1,7 +1,6 @@
 package com.cleberleao.oficina.springboot.controller;
 
 import com.cleberleao.oficina.springboot.dto.UserDto;
-import com.cleberleao.oficina.springboot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

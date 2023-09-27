@@ -1,4 +1,4 @@
-package com.cleberleao.oficina.springboot.model;
+package com.cleberleao.oficina.springboot.entity;
 
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;

@@ -3,7 +3,7 @@ package com.cleberleao.oficina.springboot.controller;
 
 import com.cleberleao.oficina.springboot.dto.LoginDto;
 import com.cleberleao.oficina.springboot.dto.TokenDto;
-import com.cleberleao.oficina.springboot.model.User;
+import com.cleberleao.oficina.springboot.entity.User;
 import com.cleberleao.oficina.springboot.service.TokenService;
 import com.cleberleao.oficina.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,16 +1,11 @@
 package com.cleberleao.oficina.springboot.dto;
 
-import com.cleberleao.oficina.springboot.model.User;
+import com.cleberleao.oficina.springboot.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.proxy.HibernateProxy;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Collection;
 import java.util.Objects;
 
 /**
