@@ -11,7 +11,7 @@
 	<groupId>com.cleberleao</groupId>
 	<artifactId>oficina-spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>oficina-spring-boot</name>
+	<name>oficina-backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
