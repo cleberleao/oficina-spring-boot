@@ -87,6 +87,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>oficina-backend</finalName>
 	</build>
 
 </project>
