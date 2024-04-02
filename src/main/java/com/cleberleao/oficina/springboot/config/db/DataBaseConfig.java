@@ -33,7 +33,8 @@ public class DataBaseConfig {
 	@Primary
 	public DataSource dataSource(){
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	    dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//	    dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+	    dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
 	    dataSource.setUrl(jdbcurlLocal);
 	    dataSource.setUsername(usernameLocal);
 	    dataSource.setPassword( passwordLocal);
