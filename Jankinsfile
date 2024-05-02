@@ -16,7 +16,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 8081:8080 oficina-spring'
+                sh 'docker run -d -p 8081:8080 oficina-spring --name oficina-spring'
+            }
+        }
+
+        stage('Stop') {
+            steps {
+                 sh 'docker stop oficina-spring'
             }
         }
     }
