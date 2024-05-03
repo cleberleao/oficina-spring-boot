@@ -16,6 +16,6 @@ RUN sed -i '/^ssl_conf = ssl_sect$/s/^/#/' /etc/ssl/openssl.cnf
 #
 FROM adoptopenjdk/openjdk11:alpine-slim
 COPY --from=build /home/app/target/oficina-backend.jar /usr/local/lib/oficina-backend.jar
-EXPOSE 8081
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/oficina-backend.jar"]
 
