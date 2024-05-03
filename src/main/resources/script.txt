@@ -1,0 +1,10 @@
+#!/bin/bash
+cd /home/ec2-user/projeto
+rm -rf oficina-spring-boot
+git clone https://github.com/cleberleao/oficina-spring-boot.git
+cd /home/ec2-user/projeto/oficina-spring-boot
+sudo docker build -t oficina-spring .
+
+
+#!/bin/bash
+sudo docker run -d -p 8080:8080 oficina-spring
