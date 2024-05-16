@@ -8,3 +8,14 @@ sudo docker build -t oficina-spring .
 
 #!/bin/bash
 sudo docker run -d -p 8080:8080 oficina-spring
+
+
+#clear docker and podman
+docker system prune -f --all
+podman system prune -f --all
+docker image prune
+podman image prune
+docker container prune
+podman container prune
+docker volume prune
+podman volume prune

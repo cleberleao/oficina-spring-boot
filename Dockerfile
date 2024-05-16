@@ -33,7 +33,7 @@ RUN mvn clean install
 
 # Stage 2: Create the runtime image
 
-FROM docker.io/openjdk11:alpine-slim
+FROM docker.io/library/openjdk:11-jdk-slim
 
 COPY --from=builder /app/target/oficina-backend.jar /usr/local/lib/oficina-backend.jar
 
