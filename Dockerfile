@@ -22,7 +22,7 @@
 
 # Stage 1: Build the application
 
-FROM maven:3.6.0-jdk-11-slim AS builder
+FROM docker.io/maven:3.6.0-jdk-11-slim AS builder
 
 WORKDIR /app
 
@@ -33,7 +33,7 @@ RUN mvn clean install
 
 # Stage 2: Create the runtime image
 
-FROM adoptopenjdk/openjdk11:alpine-slim
+FROM docker.io/openjdk11:alpine-slim
 
 COPY --from=builder /app/target/oficina-backend.jar /usr/local/lib/oficina-backend.jar
 
