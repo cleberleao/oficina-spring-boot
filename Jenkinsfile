@@ -24,11 +24,8 @@ pipeline {
         stage('Build') {
           steps {
             echo 'Building..'
-            sshagent(['146.235.34.143']) {
-                sh '''
-                    scp -o StrictHostKeyChecking=no bash_script.sh opc@146.235.34.143:/home/opc/projeto
-                    ssh -o StrictHostKeyChecking=no -l opc 146.235.34.143 'bash /home/opc/projeto/bash_script.sh'
-                '''
+            sshagent(credentials: ['146.235.34.143']) {
+                sh "ssh -o StrictHostKeyChecking=no -l opc 146.235.34.143 'cd ~/home/opc/projeto && ./bash_script.sh'"
             }
          }
       }
