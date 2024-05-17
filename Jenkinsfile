@@ -25,7 +25,7 @@ pipeline {
           steps {
             echo 'Building..'
             sshagent(credentials: ['146.235.34.143']) {
-                sh "ssh -o StrictHostKeyChecking=no -l opc 146.235.34.143 'cd ~/home/opc/projeto && ./bash_script.sh'"
+                sh "ssh -o StrictHostKeyChecking=no -l opc 146.235.34.143 'cd ~/projeto && ./bash_script.sh'"
             }
          }
       }
