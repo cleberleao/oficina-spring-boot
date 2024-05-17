@@ -22,7 +22,7 @@
 
 # Stage 1: Build the application
 
-FROM docker.io/maven:3.6.0-jdk-11-slim AS builder
+FROM docker.io/library/maven:3.6.0-jdk-11-slim AS builder
 
 WORKDIR /app
 
