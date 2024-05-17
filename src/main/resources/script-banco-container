@@ -4,4 +4,4 @@
 #sudo podman rm oficina-db
 sudo podman pull docker.io/library/mysql:8
 sleep 10
-sudo podman run -d -p 3306:3306 --name oficina-db -e MYSQL_ROOT_PASSWORD=mysql@ -e MYSQL_ROOT_HOST='%' -e MYSQL_DATABASE=oficina_db mysql:8
+sudo podman run -d -p 3306:3306 --name oficina-db -e MYSQL_ROOT_PASSWORD=mysql123oficina -e MYSQL_ROOT_HOST='%' -e MYSQL_DATABASE=oficina_db mysql:8
