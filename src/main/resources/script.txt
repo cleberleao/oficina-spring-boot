@@ -1,21 +1,12 @@
 #!/bin/bash
+sudo docker stop oficina-spring-boot
+sudo docker rm oficina-spring-boot
 cd /home/ec2-user/projeto
 rm -rf oficina-spring-boot
 git clone https://github.com/cleberleao/oficina-spring-boot.git
 cd /home/ec2-user/projeto/oficina-spring-boot
 sudo docker build -t oficina-spring .
-
+sleep 10
 
 #!/bin/bash
-sudo docker run -d -p 8080:8080 oficina-spring
-
-
-#clear docker and podman
-docker system prune -f --all
-podman system prune -f --all
-docker image prune
-podman image prune
-docker container prune
-podman container prune
-docker volume prune
-podman volume prune
+sudo docker run --name oficina-spring-boot -d -p 8080:8080 oficina-spring

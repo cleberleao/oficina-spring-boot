@@ -1,0 +1,10 @@
+#!/bin/bash
+sudo podman stop oficina-spring-boot
+sudo podman rm oficina-spring-boot
+cd /home/opc/projeto
+sudo rm -rf oficina-spring-boot
+git clone https://github.com/cleberleao/oficina-spring-boot.git
+cd /home/opc/projeto/oficina-spring-boot
+sudo podman build -t oficina-spring .
+sleep 10
+sudo podman run --name oficina-spring-boot -d -p 8080:8080 oficina-spring
